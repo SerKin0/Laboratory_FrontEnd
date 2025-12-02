@@ -38,6 +38,7 @@ jobs:
           mkdir -p ./_build
 
           cp templates/index.html ./_build/
+
           cp -r static ./_build/
           cp -r js ./_build/
           cp -r images ./_build/
