@@ -33,11 +33,19 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Prepare structure
+        run: |
+          mkdir -p ./_build
+
+          cp templates/index.html ./_build/
+          cp -r static ./_build/
+          cp -r js ./_build/
+          cp -r images ./_build/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: "./templates"
+          path: "./_build"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
